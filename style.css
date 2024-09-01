@@ -1,0 +1,131 @@
+body{
+    min-height: 100vh ;
+    margin: 0;
+    font-family: Poppins;
+    color: #1E1E1E;
+    background-image: 
+    repeating-linear-gradient(
+        to right, transparent 0 150px, #0001 150px 151px
+    ),
+    repeating-linear-gradient(
+        to bottom, transparent 0 150px, #0001 150px 151px
+    ),
+    linear-gradient(to right, #CDCDCDcc, #CDCDCDcc),
+    url(images/bg.jpg);
+    background-size: cover;
+    background-position: center;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: min(1200px,90vw);
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 0px;
+}
+header h1{
+    font-family: "Karantina", system-ui;
+    font-size:  10vw;
+    line-height: 0.8em;
+}
+.author{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 10;
+}
+h3{
+    font-family: "Karantina", system-ui;
+    font-size: 5vw;
+}
+.author div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.author div p:nth-child(2){
+    font-weight: 800px;
+}
+
+
+.banner{
+    height:100vh ;
+    overflow: hidden;
+    position: relative;
+}
+.banner .product{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50% );
+    z-index: 1;
+    transition: 0.7s ;
+    --left :0px;
+    display: flex;
+}
+.product .soda{
+    background:
+            var(--url) var(--left) 0,
+            url('images/soda.png');
+    background-size:auto 100%;
+    width: 280px;
+    aspect-ratio: 2 / 4;
+    background-blend-mode: multiply;
+    mask-image: url('images/soda.png');
+    mask-size: auto 100%;
+    transition: 0.7s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.product:hover{
+    --left:1000px;
+    transform: translate(-50%) translateY(-120px);
+}
+.product .rock{
+    position: absolute;
+    inset: 0 0 0 0;
+    pointer-events: none;
+}
+.rock img{
+    position: absolute;
+    transition: 0.7s;
+}
+.rock img:nth-child(1){
+    height:170px;
+    left: 48%;
+    transform: translateX(-50%);
+    bottom: -30px;
+}
+.rock img:nth-child(2){
+    height:50%;
+    left:0;
+    bottom: 0;
+}
+.rock img:nth-child(3){
+    height:100%;
+    right:0;
+    bottom: -100px;
+    rotate: -30deg;
+}
+.banner:has(.product:hover) .rock img:nth-child(1){
+    transform: translateX(-50%) translateY(50px);
+}
+.banner:has(.product:hover) .rock img:nth-child(2){
+    transform: translateX(-100px) translateY(100px);
+}
+.banner:has(.product:hover) .rock img:nth-child(3){
+    transform: translate(100px ,100px) ;
+}
+.product .soda:nth-child(2){
+    opacity: 0;
+}
+.product:hover .soda:nth-child(2){
+    opacity: 1;
+}
